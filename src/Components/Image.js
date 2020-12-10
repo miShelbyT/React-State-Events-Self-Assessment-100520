@@ -10,33 +10,14 @@ constructor(props){
   this.state = ({ props })
 
   this.image = () => {
-    console.log(props)
-    return yesNo.no["no-image"]
+    // console.log(props)
+    return this.state
   }
 
   this.statement = () => {
     return <Statement no={yesNo.no["no-statement"]} />
 
   }
-
-
-}
-  
-    
-
-  render() {
-    // console.log(this.image)
-    return (
-      <>
-        {this.statement()}
-        <img onClick={this.image} alt="sure" />
-      </>
-    )
-  }
-
-
-}
-
 // toggle = () => {
 //   if (this.state === yesNo.no) {
 //     return {yesNo[yes]["yes-image"]}
@@ -44,6 +25,23 @@ constructor(props){
 //   else {
 //     return {yesNo.no["no-image"]}
 //   }
+
+}
+  
+
+  render() {
+    console.log(this.state)
+    return (
+      <>
+        {this.statement()}
+        <img onClick={this.image} alt="nope" />
+      </>
+    )
+  }
+
+}
+
+
 
 
 
