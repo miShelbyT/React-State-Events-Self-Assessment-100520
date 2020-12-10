@@ -4,18 +4,32 @@ import Statement from './Statement'
 
 
 class Image extends React.Component {
+constructor(props){
+  super()
 
+  this.state = ({ props })
+
+  this.image = () => {
+    console.log(props)
+    return yesNo.no["no-image"]
+  }
+
+  this.statement = () => {
+    return <Statement no={yesNo.no["no-statement"]} />
+
+  }
+
+
+}
   
-    image = () => {
-      return yesNo.no
-    }
+    
 
   render() {
     // console.log(this.image)
     return (
       <>
-        <Statement no={yesNo.no["no-statement"]} />
-        <img onClick={yesNo.no["yes-statement"]} alt="sure" />
+        {this.statement()}
+        <img onClick={this.image} alt="sure" />
       </>
     )
   }
