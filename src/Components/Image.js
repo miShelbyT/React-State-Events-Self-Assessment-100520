@@ -1,45 +1,39 @@
 import React from 'react'
-import yesNo from '../objects'
+import { yes, no } from '../objects'
 import Statement from './Statement'
 
 
 class Image extends React.Component {
-constructor(props){
-  super()
 
-  this.state = ({ props })
 
-  this.image = () => {
-    // console.log(props)
-    return this.state
+  state = {
+    image: no["no-image"],
+    statement: no["no-statement"]
   }
 
-  this.statement = () => {
-    return <Statement no={yesNo.no["no-statement"]} />
 
-  }
-// toggle = () => {
-//   if (this.state === yesNo.no) {
-//     return {yesNo[yes]["yes-image"]}
-//   }
-//   else {
-//     return {yesNo.no["no-image"]}
-//   }
-
-}
-  
-
-  render() {
-    console.log(this.state)
-    return (
-      <>
-        {this.statement()}
-        <img onClick={this.image} alt="nope" />
-      </>
-    )
+  toggle = () => {
+    if (this.state.image === no["no-image"]) {
+      this.setState({image: yes["yes-image"]}) 
+      this.setState({statement: yes["yes-statement"]})
+    }
+    else {
+      this.setState({image: no["no-image"]})
+      this.setState({statement: no["no-statement"]})
+    }
   }
 
-}
+
+    render() {
+      return (
+        <>
+          <Statement statement={this.state.statement} key={this.state.statement} />
+          <img onClick={this.toggle} src={this.state.image} alt="nope" />
+        </>
+      )
+    }
+
+  }
 
 
 
@@ -51,4 +45,4 @@ constructor(props){
 
 
 
-export default Image
+  export default Image

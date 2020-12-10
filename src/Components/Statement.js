@@ -1,22 +1,13 @@
 import React from 'react'
 
-class Statement extends React.Component {
+function Statement(props){
 
-  constructor(props) {
-    super()
-
-    this.state = ({ props })
-
-  }
-
-
-  render() {
-    console.log(this.state)
+console.log(props)
+  
     return (
-      <h1 style={{ border: "solid", color: "grey", textAlign: "center" }}>{}</h1>
+      <h1 style={{ border: "solid", color: "grey", textAlign: "center" }}>{props.statement}</h1>
     )
 
-  }
 
 }
 
